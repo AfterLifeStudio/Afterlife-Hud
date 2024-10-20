@@ -1,4 +1,4 @@
-if not (Config.framework == 'qbx') then return end
+if not (Framework == 'qbx') then return end
 
 local QBCore = exports['qb-core']:GetCoreObject()
 PlayerLoaded = false

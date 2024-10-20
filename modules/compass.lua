@@ -1,4 +1,4 @@
-
+---@return string
 local GetPlayerDirection = function ()
     local dgr = GetGameplayCamRot(0).z + 180
 

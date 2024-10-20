@@ -1,5 +1,4 @@
 Config = {}
-
 --  setr game_enableFlyThroughWindscreen true
 --  add this in the server.cfg for the seatbelt to work  
 
@@ -18,7 +17,7 @@ GetFramework = function()
     end
 end
 
-Config.framework = GetFramework() -- qb / esx /qbox /ox
+Framework = GetFramework() -- qb / esx /qbox /ox
 
 
 

@@ -1,5 +1,7 @@
+
 local resolutions = lib.load('data.resolutions')
 
+---@class defaultres
 local defaultres = {
     sizex = 203,
     sizey = 245,
@@ -35,7 +37,7 @@ StreamMinimap = function ()
     AddReplaceTexture("platform:/textures/graphics", "radarmask1g", "squaremap", "radarmasksm")
 
     SetMinimapComponentPosition('minimap', dir, 'B', dimensions.posx, dimensions.posy, 0.203, 0.245)
-    SetMinimapComponentPosition('minimap_mask', dir, 'B', dimensions.posx + 0.068, 0.0, 0.0837, 0.235)
+    SetMinimapComponentPosition('minimap_mask', dir, 'B', dimensions.posx + 0.068, 0.0, 0.0837, 0.335)
     SetMinimapComponentPosition('minimap_blur', dir, 'B', dimensions.posx + (-0.0465), dimensions.posy + (-0.002), 0.111,0.245)
 
     SetMinimapClipType(0)
@@ -62,23 +64,9 @@ CreateThread(function()
     SetHudComponentSize(9, 0, 0)
 end)
 
-
+---@param state boolean;
 DisplayHud = function (state)
-    print(state)
    NuiMessage('visible', state)
    DisplayRadar(state)
 end
 
-
-local _st = true
-CreateThread(function()
-    while true do
-        local state = IsPauseMenuActive()
-        if state == 1 then state = true end
-        if not (_st == state) then
-            _st = not _st
-            DisplayHud(not state)
-        end
-        Wait(1000)
-    end
-end)

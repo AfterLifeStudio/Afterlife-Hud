@@ -48,6 +48,7 @@ lib.addKeybind({
         ToggleSeatbelt()
     end,
 })
+
 lib.onCache('vehicle', function(vehicledata)
     vehicle = vehicledata
 
