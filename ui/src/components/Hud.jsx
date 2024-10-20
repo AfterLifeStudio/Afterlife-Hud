@@ -3,7 +3,7 @@ import Fade from "../utils/fade";
 import { createStyles } from "@mantine/emotion";
 import Minimap from "./Minimap";
 import Speedometer from "./Speedometer";
-import Playerstatus from "./Playerstatus"
+import Playerstatus from "./playerstatus/Playerstatus";
 const useStyles = createStyles((theme) => ({
   vehicle: {
     position: 'absolute',

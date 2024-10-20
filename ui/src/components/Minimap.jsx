@@ -1,4 +1,5 @@
 import { useState,useEffect } from "react";
+import Fade from "../utils/fade";
 import mapicon from "../assets/map.png"
 import diricon from "../assets/diricon.png"
 import { createStyles } from "@mantine/emotion";
@@ -40,8 +41,11 @@ const useStyles = createStyles((theme) => ({
 }));
 
 const Minimap = () => {
-    const [visible, setVisible] = useState(true);
-    const [compass,setCompass] = useState([])
+    const [compass,setCompass] = useState({
+        show: true,
+        streetname: 'Los Santos',
+        direction: 'NW'
+    })
     const [minimap,setMinimap] = useState([])
     const { classes } = useStyles();
 
@@ -69,6 +73,7 @@ const Minimap = () => {
 
     return (
         <>
+        <Fade in={compass.show}>
         <div className={classes.minimap}>
             <div className={classes.top}>
             <div className={classes.location}>
@@ -84,6 +89,7 @@ const Minimap = () => {
             <div style={{width: minimap.width+'px',height: minimap.height+'px'}} className={classes.map}></div>
             <div className={classes.bottom}></div>
         </div>
+        </Fade>
         </>
     )
 }

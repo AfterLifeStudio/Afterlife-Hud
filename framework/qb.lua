@@ -6,26 +6,30 @@ PlayerLoaded = false
 RegisterNetEvent("QBCore:Client:OnPlayerLoaded", function()
     local playerdata = QBCore.Functions.GetPlayerData()
 
-    Stress = playerdata.metadata.stress
-    Hunger = playerdata.metadata.hunger
-    Thirst = playerdata.metadata.thirst
+    Playerstatus.Stress = playerdata.metadata.stress
+    Playerstatus.Hunger = playerdata.metadata.hunger
+    Playerstatus.Thirst = playerdata.metadata.thirst
 
-    local response = StreamMinimap()
-    DisplayHud(true)
-    PlayerLoaded = true
+    local response = LoadHud()
+    if response then
+        DisplayHud(true)
+        PlayerLoaded = true
+    end
 end)
 
 AddEventHandler('onResourceStart', function(resourceName)
     if resourceName ~= GetCurrentResourceName() then return end
     local playerdata = QBCore.Functions.GetPlayerData()
     if playerdata then
-        Stress = playerdata.metadata.stress
-        Hunger = playerdata.metadata.hunger
-        Thirst = playerdata.metadata.thirst
+        Playerstatus.Stress = playerdata.metadata.stress
+        Playerstatus.Hunger = playerdata.metadata.hunger
+        Playerstatus.Thirst = playerdata.metadata.thirst
         
-        local response = StreamMinimap()
-        DisplayHud(true)
-        PlayerLoaded = true
+        local response = LoadHud()
+        if response then
+            DisplayHud(true)
+            PlayerLoaded = true
+        end
     end
 end)
 

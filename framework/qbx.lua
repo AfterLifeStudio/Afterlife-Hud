@@ -4,13 +4,15 @@ local QBCore = exports['qb-core']:GetCoreObject()
 PlayerLoaded = false
 
 RegisterNetEvent("QBCore:Client:OnPlayerLoaded", function()
-    Stress = QBX.PlayerData.metadata.stress
-    Hunger = QBX.PlayerData.metadata.hunger
-    Thirst = QBX.PlayerData.metadata.thirst
+    Playerstatus.Stress = QBX.PlayerData.metadata.stress
+    Playerstatus.Hunger = QBX.PlayerData.metadata.hunger
+    Playerstatus.Thirst = QBX.PlayerData.metadata.thirst
 
-    local response = StreamMinimap()
-    DisplayHud(true)
-    PlayerLoaded = true
+    local response = LoadHud()
+    if response then
+        DisplayHud(true)
+        PlayerLoaded = true
+    end
 end)
 
 RegisterNetEvent("QBCore:Client:OnPlayerUnload", function()
@@ -21,14 +23,15 @@ end)
 AddEventHandler('onResourceStart', function(resourceName)
     if resourceName ~= GetCurrentResourceName() then return end
     if QBX.PlayerData then
-        Stress = QBX.PlayerData.metadata.stress
-        Hunger = QBX.PlayerData.metadata.hunger
-        Thirst = QBX.PlayerData.metadata.thirst
+        Playerstatus.Stress = QBX.PlayerData.metadata.stress
+        Playerstatus.Hunger = QBX.PlayerData.metadata.hunger
+        Playerstatus.Thirst = QBX.PlayerData.metadata.thirst
         
-        local response = StreamMinimap()
-        StreamMinimap()
-        DisplayHud(true)
-        PlayerLoaded = true
+        local response = LoadHud()
+        if response then
+            DisplayHud(true)
+            PlayerLoaded = true
+        end
     end
 end)
 

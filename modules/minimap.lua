@@ -9,7 +9,7 @@ local defaultres = {
     posy = -0.019,
 }
 
-
+---@return table
 local function CalculateMinimap()
     local screenx, screeny = GetActualScreenResolution()
     local res = defaultres
@@ -22,8 +22,7 @@ local function CalculateMinimap()
     return res
 end
 
-
-
+---@return boolean
 StreamMinimap = function ()
     local dimensions = CalculateMinimap()
     local dir = 'R'
@@ -54,19 +53,3 @@ StreamMinimap = function ()
 
     return true
 end
-
-
-CreateThread(function()
-    DisplayRadar(false)
-    SetHudComponentSize(6, 0, 0)
-    SetHudComponentSize(7, 0, 0)
-    SetHudComponentSize(8, 0, 0)
-    SetHudComponentSize(9, 0, 0)
-end)
-
----@param state boolean;
-DisplayHud = function (state)
-   NuiMessage('visible', state)
-   DisplayRadar(state)
-end
-

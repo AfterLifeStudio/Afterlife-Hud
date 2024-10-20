@@ -90,7 +90,7 @@ const Speedometer = () => {
           </div>
           <div className={classes.line}></div>
           <div className={classes.speed}>
-            <p>MPH</p>
+            <p>{vehicle.unit}</p>
             <div className={classes.speeddigit}>{vehicle.speed}</div>
           </div>
         </div>

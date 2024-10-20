@@ -1,3 +1,4 @@
+
 ---@return string
 local GetPlayerDirection = function ()
     local dgr = GetGameplayCamRot(0).z + 180
@@ -35,8 +36,9 @@ CreateThread(function()
         local direction = GetPlayerDirection()
 
         NuiMessage('compass',{
+            show = GlobalSettings.showminimap,
             streetname = streetname,
-            direction = direction
+            direction = direction,
         })
         Wait(500)
     end
