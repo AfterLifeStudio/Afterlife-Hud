@@ -11,12 +11,13 @@ const useStyles = createStyles((theme) => ({
 const Status = (data) => {
     const { classes } = useStyles();
     const val = 100 - data.value
+    const visible = data.value > 0 ? true : false
   return (
     <>
-    <Fade in={true}>
+    <Fade in={visible}>
       <div className={classes.status}>
         <img style={{width: data.size}} src={data.outlineimg} alt="" />
-        <img style={{clipPath: `polygon(0 ${val}%, 100% ${val}%, 100% 100%, 0% 100%)`,width: data.size}} className={classes.value} src={data.valueimg} alt="" />
+        <img style={{clipPath: `polygon(0 ${val}%, 100% ${val}%, 100% 100%, 0% 100%)`,width: data.size,marginTop: data.margin}} className={classes.value} src={data.valueimg} alt="" />
       </div>
       </Fade>
     </>

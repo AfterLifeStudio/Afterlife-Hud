@@ -9,10 +9,9 @@ const styles = createStyles((theme) => ({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    height: "1.2vw",
     position: "relative",
     bottom: "0.5vw",
-    p: {
+    'p': {
       fontFamily: "inter",
       color: "white",
       textTransform: "uppercase",
@@ -24,7 +23,8 @@ const styles = createStyles((theme) => ({
     display: "flex",
     flexDirection: "row",
     gap: "0.5vw",
-    p: {
+
+    'p': {
       "&:hover": {
         cursor: "pointer",
       },

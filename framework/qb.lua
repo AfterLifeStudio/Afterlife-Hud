@@ -35,11 +35,11 @@ end)
 
 
 RegisterNetEvent('hud:client:UpdateNeeds', function(newHunger, newThirst)
-    Hunger = newHunger
-    Thirst = newThirst
+    Playerstatus.Hunger = newHunger
+    Playerstatus.Thirst = newThirst
 end)
 
 RegisterNetEvent('hud:client:UpdateStress', function(newStress)
-    Stress = newStress
+    Playerstatus.Stress = newStress
 end)
 

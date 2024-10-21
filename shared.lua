@@ -1,7 +1,6 @@
-Config = {}
 
-
-GetFramework = function()
+---@return string
+local GetFramework = function()
     if GetResourceState('es_extended') ~= 'missing' then
         return 'esx'
     elseif GetResourceState('qbx_core') ~= 'missing' then
@@ -13,6 +12,7 @@ GetFramework = function()
     end
 end
 
+---@type string
 Framework = GetFramework() -- qb / esx /qbox /ox
 
 

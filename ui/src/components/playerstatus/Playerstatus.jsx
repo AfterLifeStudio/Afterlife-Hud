@@ -40,7 +40,7 @@ const useStyles = createStyles((theme) => ({
 const Playerstatus = () => {
   const [status, setStatus] = useState({
     show: true,
-    health: 100,
+    health: 200,
     armour: 100,
     oxygen: 100,
     voice: false,
@@ -62,6 +62,7 @@ const Playerstatus = () => {
       <Fade in={status.show}>
         <div className={classes.statuscontainer}>
           <div>
+
             <Status
               outlineimg={healthoutline}
               valueimg={healthvalue}
@@ -73,16 +74,18 @@ const Playerstatus = () => {
               valueimg={armorvalue}
               value={status.armour}
               size={40}
+              margin={1}
             />
           </div>
           <div className={classes.line}></div>
           <div>
-            <Mic size={40} voice={status.voice} voicemode={status.voicemode} />
+          <Mic size={35} voice={status.voice} voicemode={status.voicemode} />
             <Status
               outlineimg={hungeroutline}
               valueimg={hungervalue}
               value={status.hunger}
               size={40}
+              margin={9}
             />
             <Status
               outlineimg={thirstoutline}

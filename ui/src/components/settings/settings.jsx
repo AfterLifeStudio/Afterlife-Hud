@@ -51,41 +51,38 @@ const styles = createStyles((theme) => ({
     fontFamily: "inter",
     fontWeight: "bold",
     textAlign: "end",
+    fontSize: '.8vw'
   },
 
   catagory: {
     display: "flex",
     flexDirection: "column",
     width: "19vw",
-    color: "white",
-    fontSize: "1.2vw",
+    fontSize: "1vw",
     fontWeight: "400",
     fontFamily: "Jost",
     height: "fit-content",
   },
 
   catagorytitle: {
-    background: "#D7D7D7",
-    color: "rgba(0,0,0,0.8)",
+    background: "rgba(266,266,266,0.7)",
+    color: "#676666",
     fontWeight: "bold",
     textTransform: "uppercase",
     textAlign: "center",
   },
 
   keybind: {
-    position: "relative",
-    top: "0.5vw",
     display: "flex",
     flexDirection: "row",
     justifyContent: "end",
     paddingRight: "0.3vw",
-    backgroundColor: "rgba(0,0,0,0.5)",
+    //backgroundColor: "rgba(0,0,0,0.5)",
     gap: "0.2vw",
-    p: {
       fontFamily: "inter",
       color: "#D7D7D7",
-      fontSize: "0.8vw",
-    },
+      fontSize: "1vw",
+      textShadow: '0 0 5px black'
   },
 
   key: {
@@ -93,12 +90,13 @@ const styles = createStyles((theme) => ({
     borderRadius: "0.2vw",
     background: "#f93639",
     padding: "0 0.2vw 0 0.2vw",
+    textShadow: 'none !important'
   },
 }));
 
 const Settings = () => {
   const { classes } = styles();
-  const [visible, setVisible] = useState(false)
+  const [visible, setVisible] = useState(true)
   const [settings, setSettings] = useState({
     show: true,
     showhud: true,

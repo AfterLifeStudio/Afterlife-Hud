@@ -11,6 +11,8 @@ Playerstatus = {
 local GetEntityHealth = GetEntityHealth
 local GetPedArmour = GetPedArmour
 local IsEntityInWater = IsEntityInWater
+local GetPlayerSprintStaminaRemaining = GetPlayerSprintStaminaRemaining
+local GetPlayerUnderwaterTimeRemaining = GetPlayerUnderwaterTimeRemaining
 
 CreateThread(function()
     while true do
@@ -42,7 +44,7 @@ CreateThread(function()
     end
 end)
 
-
+---@param mode integer
 AddEventHandler('pma-voice:setTalkingMode', function(mode)
     Playerstatus.voicemode = mode
 end)

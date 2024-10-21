@@ -20,7 +20,7 @@ const useStyles = createStyles((theme) => ({
 }));
                
 const Hud = () => {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
   const { classes } = useStyles();
 
   const handlevisible = (data) => {
