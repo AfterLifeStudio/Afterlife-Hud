@@ -11,6 +11,7 @@ import hungeroutline from "../../assets/hungeroutline.png";
 import hungervalue from "../../assets/hungervalue.png";
 import thirstoutline from "../../assets/thirstoutline.png";
 import thirstvalue from "../../assets/thirstvalue.png";
+import { NuiEvent } from "../../hooks/NuiEvent";
 
 const useStyles = createStyles((theme) => ({
   statuscontainer: {
@@ -50,21 +51,11 @@ const Playerstatus = () => {
 
   const { classes } = useStyles();
 
-  useEffect(() => {
-    const handlemessage = (message) => {
-      const action = message.data.action;
-      const data = message.data.data;
+  const handleplayerstatus = (data) => {
+    setStatus(data);
+  }
 
-      switch (action) {
-        case "playerstatus":
-          setStatus(data);
-          break;
-      }
-    };
-
-    window.addEventListener("message", handlemessage);
-    return () => window.removeEventListener("message", handlemessage);
-  });
+  NuiEvent("playerstatus", handleplayerstatus)
 
   return (
     <>

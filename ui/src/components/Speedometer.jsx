@@ -3,6 +3,8 @@ import { createStyles } from "@mantine/emotion";
 import fuel from "../assets/fuel.png";
 import seatbelt from "../assets/seatbelt.png";
 import Fade from "../utils/fade";
+import { NuiEvent } from "../hooks/NuiEvent";
+
 const useStyles = createStyles((theme) => ({
     speedometer: {
         display: 'flex',
@@ -49,33 +51,24 @@ const useStyles = createStyles((theme) => ({
 
 const Speedometer = () => {
     const [visible, setVisible] = useState(false);
-    const { classes } = useStyles();
     const [vehicle,setVehicle] = useState({
       speed: 50,
       fuel: 50,
       seatbelt: false,
     })
 
+    const { classes } = useStyles();
 
-    useEffect(() => {
+    const handlevisible = (data) => {
+      setVisible(data)
+    }
 
-      const handlemessage = (message) => {
-        const action = message.data.action;
-        const data = message.data.data;
+    const handlespeedometer = (data) => {
+      setVehicle(data)
+    }
 
-        switch (action) {
-          case "speedometer":
-            setVehicle(data);
-            break;
-            case "speedvisible":
-              setVisible(data);
-            break;
-        }
-      };
-  
-      window.addEventListener("message", handlemessage);
-      return () => window.removeEventListener("message", handlemessage);
-    });
+    NuiEvent("speedvisible", handlevisible)
+    NuiEvent("speedometer", handlespeedometer)
 
     return (
       <>

@@ -8,7 +8,7 @@ import michigh from '../../assets/michigh.png';
 const Mic = (data) => {
 
   const mode = data.voicemode == 1 ? miclow : data.voicemode == 2 ? micmed : michigh
-console.log(data.voicemode)
+
   return (
     <>
       <div>

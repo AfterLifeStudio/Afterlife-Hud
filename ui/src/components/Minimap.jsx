@@ -3,6 +3,7 @@ import Fade from "../utils/fade";
 import mapicon from "../assets/map.png"
 import diricon from "../assets/diricon.png"
 import { createStyles } from "@mantine/emotion";
+import { NuiEvent } from "../hooks/NuiEvent";
 
 const useStyles = createStyles((theme) => ({
     map: {
@@ -49,26 +50,20 @@ const Minimap = () => {
     const [minimap,setMinimap] = useState([])
     const { classes } = useStyles();
 
-    useEffect(() => {
 
-        const handlemessage = (message) => {
-          const action = message.data.action;
-          const data = message.data.data;
+    const handleminimap = (data) => {
+        setMinimap(data)
+    }
 
-          switch (action) {
-            case "compass":
-                setCompass(data);
-              break;
-            case "minimap":
-                setMinimap(data)
-              break;
-          }
-        };
+    const handleCompass = (data) => {
+        setCompass(data)
+    }
+
+    NuiEvent("minimap", handleminimap)
+    NuiEvent("compass", handleCompass)
+
     
-        window.addEventListener("message", handlemessage);
-        return () => window.removeEventListener("message", handlemessage);
-      });
-    
+
     
 
     return (

@@ -1,5 +1,12 @@
-
 local resolutions = lib.load('data.resolutions')
+
+local GetActualScreenResolution = GetActualScreenResolution
+local RequestStreamedTextureDict = RequestStreamedTextureDict
+local HasStreamedTextureDictLoaded = HasStreamedTextureDictLoaded
+local SetMinimapComponentPosition = SetMinimapComponentPosition
+local SetBlipAlpha = SetBlipAlpha
+local GetNorthRadarBlip = GetNorthRadarBlip
+local SetRadarBigmapEnabled = SetRadarBigmapEnabled
 
 ---@class defaultres
 local defaultres = {
@@ -39,7 +46,6 @@ StreamMinimap = function ()
     SetMinimapComponentPosition('minimap_mask', dir, 'B', dimensions.posx + 0.068, 0.0, 0.0837, 0.335)
     SetMinimapComponentPosition('minimap_blur', dir, 'B', dimensions.posx + (-0.0465), dimensions.posy + (-0.002), 0.111,0.245)
 
-    SetMinimapClipType(0)
     SetBlipAlpha(GetNorthRadarBlip(), 0)
 
     SetRadarBigmapEnabled(true, false)
