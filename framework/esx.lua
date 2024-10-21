@@ -32,5 +32,4 @@ AddEventHandler('esx_status:onTick', function(data)
         if data[i].name == 'hunger' then Playerstatus.Hunger = math.floor(data[i].percent) end
         if data[i].name == 'stress' then Playerstatus.Stress = math.floor(data[i].percent) end
     end
-end
 end)

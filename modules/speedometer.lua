@@ -64,9 +64,9 @@ lib.addKeybind({
 
 ToggleSpeedometer = function (vehicle)
     local incar = vehicle and true or false
-    print(GlobalSettings.showspeedometer,'a')
+    if not incar then seatbelt = false end
+    
     showspeedometer = GlobalSettings.showspeedometer == true and incar or false
-    print(showspeedometer)
     NuiMessage('speedvisible', showspeedometer)
 end
 

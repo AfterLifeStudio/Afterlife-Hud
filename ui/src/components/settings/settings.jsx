@@ -32,15 +32,16 @@ const styles = createStyles((theme) => ({
   toptext: {
     display: "flex",
     flexDirection: "row",
+    gap: '0.2vw',
     alignItems: "center",
     padding: "0px 5px 0px 5px",
     img: {
       width: "1.5vw",
     },
     p: {
-      fontFamily: "Inter",
+      fontFamily: "Jost",
       fontSize: "1.5vw",
-      fontWeight: "bold",
+      fontWeight: "400",
       color: "rgba(0,0,0,0.8)",
     },
   },
@@ -58,15 +59,15 @@ const styles = createStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     width: "19vw",
-    fontSize: "1vw",
+    fontSize: "0.8vw",
     fontWeight: "400",
     fontFamily: "Jost",
     height: "fit-content",
   },
 
   catagorytitle: {
-    background: "rgba(266,266,266,0.7)",
-    color: "#676666",
+    background: "rgba(266,266,266,0.6)",
+    color: "rgba(0,0,0,0.7)",
     fontWeight: "bold",
     textTransform: "uppercase",
     textAlign: "center",
@@ -96,7 +97,7 @@ const styles = createStyles((theme) => ({
 
 const Settings = () => {
   const { classes } = styles();
-  const [visible, setVisible] = useState(true)
+  const [visible, setVisible] = useState(false)
   const [settings, setSettings] = useState({
     show: true,
     showhud: true,
@@ -108,7 +109,6 @@ const Settings = () => {
   });
 
   const handlesettings = (data) => {
-    console.log(data)
     setSettings(data);
     setVisible(true)
   };

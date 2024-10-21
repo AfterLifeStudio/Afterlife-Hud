@@ -14,7 +14,7 @@ const useStyles = createStyles((theme) => ({
     },
     top: {
         backgroundColor: '#D7D7D7',
-        height: 25,
+        height: 20,
         width: '100%',
         display: 'flex',
         flexDirection: 'row',
@@ -34,7 +34,7 @@ const useStyles = createStyles((theme) => ({
         gap: 2,
         'p': {
             fontFamily: "Inter",
-            fontSize: 15,
+            fontSize: 10,
             fontWeight: 'bold',
             color: '#676666',
         }

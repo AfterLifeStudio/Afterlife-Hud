@@ -3,7 +3,6 @@ import './App.css'
 import Hud from './components/Hud'
 import { createTheme, MantineProvider } from '@mantine/core';
 import {emotionTransform, MantineEmotionProvider,} from '@mantine/emotion';
-
 import { useConfig } from './providers/configprovider';
 
 const theme = createTheme({
@@ -12,12 +11,12 @@ const theme = createTheme({
 
 function App() {
 
-  const { config } = useConfig();
+
 
   return (
     <>
 
-    <MantineProvider theme={{...theme , ...config.theme}}>
+    <MantineProvider theme={{...theme}}>
       <MantineEmotionProvider>
         <Hud />
         </MantineEmotionProvider>

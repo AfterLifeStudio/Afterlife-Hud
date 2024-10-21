@@ -5,12 +5,17 @@ import { nuicallback } from "../../utils/nuicallback";
 const styles = createStyles((theme) => ({
 
   option: {
+    height: '1.8vw',
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    padding: '0 5px 0 5px',
     position: "relative",
     bottom: "0.5vw",
+    '&:hover': {
+      background: 'rgba(0,0,0,0.7)',
+    },
     'p': {
       fontFamily: "inter",
       color: "white",

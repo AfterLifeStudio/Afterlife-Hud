@@ -1,6 +1,7 @@
 
 local GetResourceKvpString = GetResourceKvpString
 local SetResourceKvp = SetResourceKvp
+local PlaySoundFromEntity = PlaySoundFromEntity
 
 ---@class GlobalSettings 
 GlobalSettings = {}
@@ -47,6 +48,8 @@ RegisterNUICallback('settings', function (data, cb)
         ToggleSpeedometer(cache.vehicle)
     end
 
+    PlaySoundFromEntity(-1, "BACK", cache.ped, "HUD_FRONTEND_DEFAULT_SOUNDSET", 0, 0)
+
     cb{{}}
 end)
 
@@ -55,6 +58,7 @@ end)
 
 RegisterNUICallback('exitsettings', function (data, cb)
     SetNuiFocus(false, false)
+    PlaySoundFromEntity(-1, "BACK", cache.ped, "HUD_FRONTEND_DEFAULT_SOUNDSET", 0, 0)
     cb{{}}
 end)
 
@@ -63,6 +67,7 @@ lib.addKeybind({
     description = 'Toggle Hud Settings',
     defaultKey = 'i',
     onPressed = function(self)
+        PlaySoundFromEntity(-1, "BACK", cache.ped, "HUD_FRONTEND_DEFAULT_SOUNDSET", 0, 0)
         NuiMessage('settings',GlobalSettings)
         SetNuiFocus(true, true)
     end,
