@@ -29,12 +29,15 @@ const useStyles = createStyles((theme) => ({
         'p':{
             fontSize: 20,
             opacity: '50%',
+            textShadow: '0 0 5px black'
         }
     },
     speeddigit: {
         position: 'relative',
         bottom: 35,
-        left: 5,
+        right: 5,
+        width: 75,
+        textShadow: '0 0 5px black'
     },
     line: {
         width: 2,
@@ -46,11 +49,12 @@ const useStyles = createStyles((theme) => ({
         flexDirection: 'row',
         alignItems: 'center',
         gap: 4,
+        textShadow: '0 0 5px black'
     },
 }));
 
 const Speedometer = () => {
-    const [visible, setVisible] = useState(false);
+    const [speedvisible, setSpeedvisible] = useState(false);
     const [vehicle,setVehicle] = useState({
       speed: 50,
       fuel: 50,
@@ -59,34 +63,50 @@ const Speedometer = () => {
 
     const { classes } = useStyles();
 
-    const handlevisible = (data) => {
-      setVisible(data)
+    const handlespeedvisible = (data) => {
+      setSpeedvisible(data)
     }
 
     const handlespeedometer = (data) => {
       setVehicle(data)
     }
 
-    NuiEvent("speedvisible", handlevisible)
+    NuiEvent("speedvisible", handlespeedvisible)
     NuiEvent("speedometer", handlespeedometer)
+
 
     return (
       <>
-     <Fade in={visible}>
-        <div className={classes.speedometer}>
-        <Fade in={vehicle.seatbelt}>
-        <img src={seatbelt} alt="" />
-        </Fade>
-          <div className={classes.fuel}>
-            <img src={fuel} alt="" />
-            <p>{vehicle.fuel}</p>
+        <Fade in={speedvisible}>
+          <div className={classes.speedometer}>
+            <Fade in={vehicle.seatbelt}>
+              <img src={seatbelt} alt="" />
+            </Fade>
+            <div className={classes.fuel}>
+              <img src={fuel} alt="" />
+              <p>{vehicle.fuel}</p>
+            </div>
+            <div className={classes.line}></div>
+            <div className={classes.speed}>
+              <p>{vehicle.unit ? "MPH" : "KMH"}</p>
+              <div className={classes.speeddigit}>
+                {vehicle.speed < 10 ? (
+                  <>
+                    <span style={{opacity: '50%'}}>0</span>
+                    <span style={{opacity: '50%'}}>0</span>
+                    <span>{vehicle.speed}</span>
+                  </>
+                ) : vehicle.speed < 100 ? (
+                  <>
+                    <span style={{opacity: '50%'}}>0</span>
+                    <span>{vehicle.speed}</span>
+                  </>
+                ) : (
+                  <span>{vehicle.speed}</span>
+                )}
+              </div>
+            </div>
           </div>
-          <div className={classes.line}></div>
-          <div className={classes.speed}>
-            <p>{vehicle.unit}</p>
-            <div className={classes.speeddigit}>{vehicle.speed}</div>
-          </div>
-        </div>
         </Fade>
       </>
     );

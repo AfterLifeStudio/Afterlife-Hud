@@ -12,7 +12,7 @@ RegisterNetEvent("QBCore:Client:OnPlayerLoaded", function()
 
     local response = LoadHud()
     if response then
-        DisplayHud(true)
+        DisplayHud(GlobalSettings.showhud)
         PlayerLoaded = true
     end
 end)
@@ -27,7 +27,7 @@ AddEventHandler('onResourceStart', function(resourceName)
         
         local response = LoadHud()
         if response then
-            DisplayHud(true)
+            DisplayHud(GlobalSettings.showhud)
             PlayerLoaded = true
         end
     end

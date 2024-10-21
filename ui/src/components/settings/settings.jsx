@@ -106,10 +106,11 @@ const Settings = () => {
     showspeedometer: true,
     showplayerstatus: true,
     showminimap: true,
-    speedunit: "MPH",
+    speedunitmph: true,
   });
 
   const handlesettings = (data) => {
+    console.log(data)
     setSettings(data);
     setVisible(true)
   };
@@ -119,7 +120,7 @@ const Settings = () => {
   useEffect(() => {
 
     const handlekey = (e) => {
-      if (visible && e.code == 27) {
+      if (visible && e.code == 'Escape') {
         setVisible(false)
         nuicallback("exitsettings")
       }
@@ -144,12 +145,14 @@ const Settings = () => {
               <p className={classes.catagorytitle}>General</p>
               <Option
                 title={"Toggle Hud"}
+                value={settings.showhud}
                 option1={"SHOW"}
                 option2={"HIDE"}
                 option={"showhud"}
               />
               <Option
                 title={"Cinemtic Mode"}
+                value={settings.cinemtic}
                 option1={"SHOW"}
                 option2={"HIDE"}
                 option={"cinemtic"}
@@ -159,21 +162,24 @@ const Settings = () => {
               <p className={classes.catagorytitle}>Speedometer</p>
               <Option
                 title={"Toggle Speedometer"}
+                value={settings.showspeedometer}
                 option1={"SHOW"}
                 option2={"HIDE"}
                 option={"showspeedometer"}
               />
               <Option
                 title={"Speed Unit"}
-                option1={"KMH"}
-                option2={"MPH"}
-                option={"speedunit"}
+                value={settings.speedunitmph}
+                option1={"MPH"}
+                option2={"KMH"}
+                option={"speedunitmph"}
               />
             </div>
             <div className={classes.catagory}>
               <p className={classes.catagorytitle}>Minimap</p>
               <Option
                 title={"Toggle Minimap"}
+                value={settings.showminimap}
                 option1={"SHOW"}
                 option2={"HIDE"}
                 option={"showminimap"}
@@ -183,6 +189,7 @@ const Settings = () => {
               <p className={classes.catagorytitle}>Player Status</p>
               <Option
                 title={"Toggle Status"}
+                value={settings.showplayerstatus}
                 option1={"SHOW"}
                 option2={"HIDE"}
                 option={"showplayerstatus"}

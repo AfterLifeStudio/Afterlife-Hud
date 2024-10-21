@@ -34,11 +34,11 @@ const styles = createStyles((theme) => ({
 
 const Option = (data) => {
   const { classes } = styles();
-
-  const [input, setinput] = useState(true);
+  
+  const [input, setinput] = useState(data.value);
 
   const handleinput = (input,option) => {
-    setinput(input);
+    setinput(input)
     nuicallback("settings",{option,input})
   };
 

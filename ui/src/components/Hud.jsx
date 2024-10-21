@@ -20,7 +20,7 @@ const useStyles = createStyles((theme) => ({
 }));
                
 const Hud = () => {
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
   const { classes } = useStyles();
 
   const handlevisible = (data) => {
@@ -31,8 +31,8 @@ const Hud = () => {
 
   return (
     <>
+      <Settings/>
       <Fade in={visible}>
-        <Settings/>
         <Playerstatus />
         <div className={classes.vehicle}>
           <Speedometer />

@@ -1,9 +1,5 @@
 Config = {}
---  setr game_enableFlyThroughWindscreen true
---  add this in the server.cfg for the seatbelt to work  
 
-Config.seatbelt = 'b'
-Config.settingskey = 'i'
 
 GetFramework = function()
     if GetResourceState('es_extended') ~= 'missing' then

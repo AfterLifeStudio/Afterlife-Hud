@@ -19,14 +19,16 @@ end
 
 CreateThread(function()
     while true do
-        local pausemenuactive = IsPauseMenuActive()
+        if GlobalSettings.showhud then
+            local pausemenuactive = IsPauseMenuActive()
 
-        if pausemenuactive and not Active then
-            NuiMessage('visible', Active)
-            Active = true
-        elseif not pausemenuactive and Active then
-            NuiMessage('visible', Active)
-            Active = false
+            if pausemenuactive and not Active then
+                NuiMessage('visible', Active)
+                Active = true
+            elseif not pausemenuactive and Active then
+                NuiMessage('visible', Active)
+                Active = false
+            end
         end
         Wait(1000)
     end

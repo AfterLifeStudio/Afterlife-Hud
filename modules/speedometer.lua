@@ -10,16 +10,19 @@ CreateThread(function()
         local sleep = 1000
         if showspeedometer then
             sleep = 50
-            local speed = math.ceil(GetEntitySpeed(vehicle) *  (GlobalSettings.speedunit == 'MPH' and 2.2 or 3.6))
+            local speed = math.ceil(GetEntitySpeed(vehicle) *  (GlobalSettings.speedunitmph and 2.2 or 3.6))
             local fuel = math.ceil(GetVehicleFuelLevel(vehicle))
             local data = {
+                show = showspeedometer,
                 speed = speed,
                 fuel = fuel,
                 seatbelt = not seatbelt,
-                unit = GlobalSettings.speedunit
+                unit = GlobalSettings.speedunitmph
             }
             NuiMessage('speedometer', data)
         end
+
+        
         Wait(sleep)
     end
 end)
@@ -52,16 +55,22 @@ end
 lib.addKeybind({
     name = 'seatbelt',
     description = 'Toggle vehicle seatbelt',
-    defaultKey = Config.seatbelt,
+    defaultKey = 'b',
     onPressed = function(self)
         ToggleSeatbelt()
     end,
 })
 
+
+ToggleSpeedometer = function (vehicle)
+    local incar = vehicle and true or false
+    print(GlobalSettings.showspeedometer,'a')
+    showspeedometer = GlobalSettings.showspeedometer == true and incar or false
+    print(showspeedometer)
+    NuiMessage('speedvisible', showspeedometer)
+end
+
 lib.onCache('vehicle', function(vehicledata)
     vehicle = vehicledata
-    local incar = vehicle and true or false
-    showspeedometer = GlobalSettings.showspeedometer == true and incar or false
-
-    NuiMessage('speedvisible', showspeedometer)
+    ToggleSpeedometer(vehicle)
 end)

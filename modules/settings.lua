@@ -12,7 +12,7 @@ local Settings = {
     showspeedometer = true,
     showplayerstatus = true,
     showminimap = true,
-    speedunit = 'MPH',
+    speedunitmph = true,
 }
 
 ---@return boolean
@@ -32,16 +32,26 @@ LoadHud = function ()
     return response
 end
 
+
+---@param data table
 RegisterNUICallback('settings', function (data, cb)
-    local value = data[2]
-    if value == 'Show' then
-        value = true
-    elseif value == 'hide' then
-        value = false
+    local value = data.input
+
+    GlobalSettings[data.option] = value
+    SetResourceKvp('Hud:Data', json.encode(GlobalSettings))
+
+    if data.option == 'showhud' then
+        DisplayHud(GlobalSettings[data.option])
+        ToggleSpeedometer(cache.vehicle)
+    elseif data.option == 'showspeedometer' then
+        ToggleSpeedometer(cache.vehicle)
     end
-    GlobalSettings[data[1]] = value
+
     cb{{}}
 end)
+
+
+
 
 RegisterNUICallback('exitsettings', function (data, cb)
     SetNuiFocus(false, false)
@@ -53,7 +63,6 @@ lib.addKeybind({
     description = 'Toggle Hud Settings',
     defaultKey = 'i',
     onPressed = function(self)
-        print('a')
         NuiMessage('settings',GlobalSettings)
         SetNuiFocus(true, true)
     end,
