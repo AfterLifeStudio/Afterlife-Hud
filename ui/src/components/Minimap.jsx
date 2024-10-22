@@ -9,8 +9,6 @@ const useStyles = createStyles((theme) => ({
     map: {
         backgroundColor: 'black',
         opacity: '20%',
-        width: 203,
-        height: 245
     },
     top: {
         backgroundColor: '#D7D7D7',
@@ -44,27 +42,19 @@ const useStyles = createStyles((theme) => ({
 const Minimap = () => {
     const [compass,setCompass] = useState({
         show: true,
+        width: 203,
+        height: 245,
         streetname: 'Los Santos',
         direction: 'NW'
     })
-    const [minimap,setMinimap] = useState([])
+
     const { classes } = useStyles();
-
-
-    const handleminimap = (data) => {
-        setMinimap(data)
-    }
 
     const handleCompass = (data) => {
         setCompass(data)
     }
 
-    NuiEvent("minimap", handleminimap)
     NuiEvent("compass", handleCompass)
-
-    
-
-    
 
     return (
         <>
@@ -81,7 +71,7 @@ const Minimap = () => {
                 </div>
             </div>
 
-            <div style={{width: minimap.width+'px',height: minimap.height+'px'}} className={classes.map}></div>
+            <div style={{width: compass.width+'px',height: compass.height+'px'}} className={classes.map}></div>
             <div className={classes.bottom}></div>
         </div>
         </Fade>

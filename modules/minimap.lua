@@ -8,6 +8,12 @@ local SetBlipAlpha = SetBlipAlpha
 local GetNorthRadarBlip = GetNorthRadarBlip
 local SetRadarBigmapEnabled = SetRadarBigmapEnabled
 
+---@class NuiRes
+NuiRes = {
+    width = 203,
+    height = 245
+}
+
 ---@class defaultres
 local defaultres = {
     sizex = 203,
@@ -26,6 +32,7 @@ local function CalculateMinimap()
             break;
         end
     end
+
     return res
 end
 
@@ -52,10 +59,10 @@ StreamMinimap = function ()
     Wait(50)
     SetRadarBigmapEnabled(false, false)
 
-    NuiMessage('minimap',{
+    NuiRes = {
         width = dimensions.sizex,
         height = dimensions.sizey
-    })
+    }
 
     return true
 end

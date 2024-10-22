@@ -39,6 +39,8 @@ CreateThread(function()
             show = GlobalSettings.showminimap,
             streetname = streetname,
             direction = direction,
+            width = NuiRes.width,
+            height = NuiRes.height
         })
         Wait(500)
     end

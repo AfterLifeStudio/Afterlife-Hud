@@ -26,6 +26,7 @@ CreateThread(function()
                 NuiMessage('visible', Active)
                 Active = true
             elseif not pausemenuactive and Active then
+                StreamMinimap()
                 NuiMessage('visible', Active)
                 Active = false
             end
