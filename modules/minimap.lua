@@ -39,6 +39,7 @@ StreamMinimap = function ()
         Wait(150)
     end
 
+    Wait(100)
     AddReplaceTexture("platform:/textures/graphics", "radarmasksm", "squaremap", "radarmasksm")
 
     SetMinimapComponentPosition('minimap', dir, 'B', dimensions.posx, dimensions.posy, 0.203, 0.245)

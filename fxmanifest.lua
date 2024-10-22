@@ -1,6 +1,16 @@
 fx_version 'cerulean'
 game 'gta5'
 lua54 'yes'
+name 'Afterlife_hud'
+author 'AfterLifeStudio'
+version 'BETA'
+repository 'https://github.com/AfterLifeStudio/Afterlife-Hud'
+description 'Simple yet a complex hud resource'
+
+dependencies {
+    'ox_lib',
+}
+
 
 client_scripts {
     'shared.lua',
@@ -12,8 +22,6 @@ client_scripts {
 }
 
 shared_script '@ox_lib/init.lua'
-
-
 
 ui_page 'ui/dist/index.html'
 

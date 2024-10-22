@@ -6,6 +6,8 @@ PlayerLoaded = false
 
 RegisterNetEvent('esx:playerLoaded')
 AddEventHandler('esx:playerLoaded', function(playerData)
+    Wait(1000)
+
     local response = LoadHud()
     if response then
         DisplayHud(GlobalSettings.showhud)

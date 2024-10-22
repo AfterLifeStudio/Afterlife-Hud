@@ -43,9 +43,8 @@ RegisterNUICallback('settings', function (data, cb)
 
     if data.option == 'showhud' then
         DisplayHud(GlobalSettings[data.option])
-        ToggleSpeedometer(cache.vehicle)
-    elseif data.option == 'showspeedometer' then
-        ToggleSpeedometer(cache.vehicle)
+    elseif data.option == 'cinemtic' then
+        --Todo
     end
 
     PlaySoundFromEntity(-1, "BACK", cache.ped, "HUD_FRONTEND_DEFAULT_SOUNDSET", 0, 0)

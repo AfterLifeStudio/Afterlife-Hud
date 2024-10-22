@@ -1,12 +1,13 @@
 if not (Framework == 'qbx') then return end
 
-local QBCore = exports['qb-core']:GetCoreObject()
 PlayerLoaded = false
 
 RegisterNetEvent("QBCore:Client:OnPlayerLoaded", function()
     Playerstatus.Stress = QBX.PlayerData.metadata.stress
     Playerstatus.Hunger = QBX.PlayerData.metadata.hunger
     Playerstatus.Thirst = QBX.PlayerData.metadata.thirst
+
+    Wait(1000)
 
     local response = LoadHud()
     if response then
@@ -26,7 +27,9 @@ AddEventHandler('onResourceStart', function(resourceName)
         Playerstatus.Stress = QBX.PlayerData.metadata.stress
         Playerstatus.Hunger = QBX.PlayerData.metadata.hunger
         Playerstatus.Thirst = QBX.PlayerData.metadata.thirst
-        
+
+        Wait(1000)
+
         local response = LoadHud()
         if response then
             DisplayHud(GlobalSettings.showhud)

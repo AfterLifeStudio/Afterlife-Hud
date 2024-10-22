@@ -1,4 +1,4 @@
-local vehicle,showspeedometer,seatbelt = false,false,false
+local vehicle,seatbelt = false,false
 
 local GetEntitySpeed = GetEntitySpeed
 local GetVehicleFuelLevel = GetVehicleFuelLevel
@@ -8,7 +8,10 @@ local SetFlyThroughWindscreenParams = SetFlyThroughWindscreenParams
 CreateThread(function()
     while true do
         local sleep = 1000
-        if showspeedometer then
+        local incar = vehicle and true or false
+        local showspeedometer = GlobalSettings.showspeedometer == true and incar or false
+
+        if incar then
             sleep = 50
             local speed = math.ceil(GetEntitySpeed(vehicle) *  (GlobalSettings.speedunitmph and 2.2 or 3.6))
             local fuel = math.ceil(GetVehicleFuelLevel(vehicle))
@@ -20,6 +23,8 @@ CreateThread(function()
                 unit = GlobalSettings.speedunitmph
             }
             NuiMessage('speedometer', data)
+        else
+            NuiMessage('speedometer', {show = showspeedometer})
         end
 
         
@@ -62,15 +67,7 @@ lib.addKeybind({
 })
 
 
-ToggleSpeedometer = function (vehicle)
-    local incar = vehicle and true or false
-    if not incar then seatbelt = false end
-    
-    showspeedometer = GlobalSettings.showspeedometer == true and incar or false
-    NuiMessage('speedvisible', showspeedometer)
-end
 
 lib.onCache('vehicle', function(vehicledata)
     vehicle = vehicledata
-    ToggleSpeedometer(vehicle)
 end)

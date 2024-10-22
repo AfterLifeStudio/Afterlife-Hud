@@ -10,6 +10,8 @@ RegisterNetEvent("QBCore:Client:OnPlayerLoaded", function()
     Playerstatus.Hunger = playerdata.metadata.hunger
     Playerstatus.Thirst = playerdata.metadata.thirst
 
+    Wait(1000)
+
     local response = LoadHud()
     if response then
         DisplayHud(GlobalSettings.showhud)
@@ -25,6 +27,8 @@ AddEventHandler('onResourceStart', function(resourceName)
         Playerstatus.Hunger = playerdata.metadata.hunger
         Playerstatus.Thirst = playerdata.metadata.thirst
         
+        Wait(1000)
+
         local response = LoadHud()
         if response then
             DisplayHud(GlobalSettings.showhud)

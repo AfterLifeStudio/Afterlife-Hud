@@ -54,8 +54,8 @@ const useStyles = createStyles((theme) => ({
 }));
 
 const Speedometer = () => {
-    const [speedvisible, setSpeedvisible] = useState(false);
     const [vehicle,setVehicle] = useState({
+      show: false,
       speed: 50,
       fuel: 50,
       seatbelt: false,
@@ -63,21 +63,16 @@ const Speedometer = () => {
 
     const { classes } = useStyles();
 
-    const handlespeedvisible = (data) => {
-      setSpeedvisible(data)
-    }
-
     const handlespeedometer = (data) => {
       setVehicle(data)
     }
 
-    NuiEvent("speedvisible", handlespeedvisible)
     NuiEvent("speedometer", handlespeedometer)
 
 
     return (
       <>
-        <Fade in={speedvisible}>
+        <Fade in={vehicle.show}>
           <div className={classes.speedometer}>
             <Fade in={vehicle.seatbelt}>
               <img src={seatbelt} alt="" />

@@ -3,6 +3,7 @@ if not (Framework == 'ox') then return end
 PlayerLoaded = false
 
 RegisterNetEvent("ox:playerLoaded", function()
+    Wait(1000)
     local response = LoadHud()
     if response then
         DisplayHud(GlobalSettings.showhud)
