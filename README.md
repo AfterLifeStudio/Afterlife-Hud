@@ -29,14 +29,6 @@ this hud was mainly inspired by watch dogs style ui and some other games too, it
 Need Support
 [Discord](https://discord.gg/fG8gtywEZ5)
 
-Checkout my Tebex
-[Tebex](https://al-studios.tebex.io/)
-
-Other Resources
-[Afterlife IV Hud](https://forum.cfx.re/t/paid-al-iv-hud/5208533)
-[Afterlife IV Multicharacter](https://forum.cfx.re/t/paid-al-iv-multicharacter/5261947)
-[AfterLife Scoreboard](https://forum.cfx.re/t/paid-afterlife-scoreboard-leaderboard/5274828)
-
 |                                         |                                |
 |-------------------------------------|----------------------------|
 | Code is accessible       | Yes                |
