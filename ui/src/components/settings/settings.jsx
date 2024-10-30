@@ -102,10 +102,12 @@ const Settings = () => {
     show: true,
     showhud: true,
     cinemtic: false,
+    circlemap: false,
     showspeedometer: true,
     showplayerstatus: true,
     showminimap: true,
     speedunitmph: true,
+    squareminimap: true,
   });
 
   const handlesettings = (data) => {
@@ -181,6 +183,13 @@ const Settings = () => {
                 option1={"SHOW"}
                 option2={"HIDE"}
                 option={"showminimap"}
+              />
+                <Option
+                title={"Minimap Type"}
+                value={settings.circlemap}
+                option1={"CIRCLE"}
+                option2={"SQUARE"}
+                option={"circlemap"}
               />
             </div>
             <div className={classes.catagory}>

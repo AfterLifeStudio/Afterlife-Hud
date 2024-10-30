@@ -1,8 +1,6 @@
 
 ---@return string
-local GetPlayerDirection = function ()
-    local dgr = GetGameplayCamRot(0).z + 180
-
+local GetPlayerDirection = function (dgr)
     if (dgr >= 0.0 and dgr < 22.5) or dgr >= 337.5 then
         return 'N'
     elseif dgr >= 22.5 and dgr < 67.5 then
@@ -32,16 +30,18 @@ CreateThread(function()
         if street2 == 0 then
             streetname = GetStreetNameFromHashKey(street1)
         end
-
-        local direction = GetPlayerDirection()
+        local dgr = GetGameplayCamRot(0).z + 180
+        local direction = GetPlayerDirection(dgr)
 
         NuiMessage('compass',{
             show = GlobalSettings.showminimap,
+            circlemap = GlobalSettings.circlemap,
             streetname = streetname,
             direction = direction,
+            heading = dgr,
             width = NuiRes.width,
             height = NuiRes.height
         })
-        Wait(500)
+        Wait(50)
     end
 end)

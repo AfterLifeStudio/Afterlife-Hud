@@ -55,10 +55,10 @@ const useStyles = createStyles((theme) => ({
 
 const Speedometer = () => {
     const [vehicle,setVehicle] = useState({
-      show: false,
+      show: true,
       speed: 50,
       fuel: 50,
-      seatbelt: false,
+      seatbelt: true,
     })
 
     const { classes } = useStyles();

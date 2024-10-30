@@ -8,6 +8,7 @@ local SetBlipAlpha = SetBlipAlpha
 local GetNorthRadarBlip = GetNorthRadarBlip
 local SetRadarBigmapEnabled = SetRadarBigmapEnabled
 
+
 ---@class NuiRes
 NuiRes = {
     width = 203,
@@ -18,7 +19,7 @@ NuiRes = {
 local defaultres = {
     sizex = 203,
     sizey = 245,
-    posx = 0.035,
+    posx = 0.847,
     posy = -0.019,
 }
 
@@ -37,32 +38,39 @@ local function CalculateMinimap()
 end
 
 ---@return boolean
-StreamMinimap = function ()
+StreamMinimap = function()
     local dimensions = CalculateMinimap()
-    local dir = 'R'
+    local dir = 'L'
+    local map = GlobalSettings.circlemap and 'circlemap' or 'squaremap'
 
-    RequestStreamedTextureDict("squaremap", false)
-    if not HasStreamedTextureDictLoaded("squaremap") then
-        Wait(150)
+
+    Wait(1000)
+    RequestStreamedTextureDict(map, false)
+    while not HasStreamedTextureDictLoaded(map) do
+        Wait(100)
     end
-
-    Wait(100)
-    AddReplaceTexture("platform:/textures/graphics", "radarmasksm", "squaremap", "radarmasksm")
-
-    SetMinimapComponentPosition('minimap', dir, 'B', dimensions.posx, dimensions.posy, 0.203, 0.245)
-    SetMinimapComponentPosition('minimap_mask', dir, 'B', dimensions.posx + 0.068, 0.0, 0.0837, 0.335)
-    SetMinimapComponentPosition('minimap_blur', dir, 'B', dimensions.posx + (-0.0465), dimensions.posy + (-0.002), 0.111,0.245)
-
     SetBlipAlpha(GetNorthRadarBlip(), 0)
+    AddReplaceTexture("platform:/textures/graphics", "radarmasksm", map, "radarmasksm")
+
+    SetMinimapClipType(GlobalSettings.circlemap and 1 or 0)
+
+    local w, h = 0.111, 0.245
+
+    local margin = GlobalSettings.circlemap and 0.007 or 0
+
+    SetMinimapComponentPosition('minimap', dir, 'B', dimensions.posx - margin, dimensions.posy, w, h)
+    SetMinimapComponentPosition('minimap_mask', dir, 'B', dimensions.posx - margin, dimensions.posy, w, h)
+    SetMinimapComponentPosition('minimap_blur', dir, 'B', dimensions.posx - margin, dimensions.posy, w, h)
 
     SetRadarBigmapEnabled(true, false)
-    Wait(50)
+    Wait(0)
     SetRadarBigmapEnabled(false, false)
 
     NuiRes = {
-        width = dimensions.sizex,
+        width = dimensions.sizex + (GlobalSettings.circlemap and 75 or 0),
         height = dimensions.sizey
     }
-
     return true
 end
+
+

@@ -10,10 +10,12 @@ GlobalSettings = {}
 local Settings = {
     showhud = true,
     cinemtic = false,
+    circlemap = false,
     showspeedometer = true,
     showplayerstatus = true,
     showminimap = true,
     speedunitmph = true,
+    squaremap = false,
 }
 
 ---@return boolean
@@ -43,6 +45,8 @@ RegisterNUICallback('settings', function (data, cb)
 
     if data.option == 'showhud' then
         DisplayHud(GlobalSettings[data.option])
+    elseif data.option == 'circlemap' then
+        StreamMinimap()
     elseif data.option == 'cinemtic' then
         --Todo
     end

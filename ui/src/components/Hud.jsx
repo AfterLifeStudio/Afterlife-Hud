@@ -10,8 +10,8 @@ import { NuiEvent } from "../hooks/NuiEvent";
 const useStyles = createStyles((theme) => ({
   vehicle: {
     position: 'absolute',
-    bottom: '2vw',
-    right: '3vw',
+    bottom: '1.2vw',
+    right: '1.7vw',
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'end',
@@ -20,7 +20,7 @@ const useStyles = createStyles((theme) => ({
 }));
                
 const Hud = () => {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
   const { classes } = useStyles();
 
   const handlevisible = (data) => {
