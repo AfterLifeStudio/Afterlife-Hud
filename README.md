@@ -1,9 +1,9 @@
-![afterlifehud|690x388](https://cdn.discordapp.com/attachments/1086633933145382942/1297987274918727750/afterlifehud2.png?ex=671c8999&is=671b3819&hm=1e54caeacc8f2a446f3a956163b6e1f2e1ccde985c39d6e45db678f3939b8e3a&)
+![afterlifehud|690x388](https://forum-cfx-re.akamaized.net/optimized/5X/1/0/e/1/10e139dfdca32d7b7168d183b61d977ef0b064fb_2_690x388.jpeg)
 
 # Afterlife Hud
 this hud was mainly inspired by watch dogs style ui and some other games too, its a simple yet a complex hud resource and i am planning on to improving it to alot further so any **Pull Request** will be really apreciated
 
-![framework supported|690x276](https://cdn.discordapp.com/attachments/1236448120905138208/1297990768044281967/framework_supported.png?ex=6717ef9a&is=67169e1a&hm=0930e7cc31a823c439e1a8636d8c0381bb4c5fb0b71dcfc00e6b5e7cd192dc2a&)
+![framework supported|690x276](https://forum-cfx-re.akamaized.net/optimized/5X/f/8/4/c/f84cae152f9b989a2c5ffe40f01e876db5e3c884_2_690x276.png)
 
 
 # Features:
