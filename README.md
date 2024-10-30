@@ -22,6 +22,8 @@ this hud was mainly inspired by watch dogs style ui and some other games too, it
 
 > **SETTINGS**
 > Settings menu to customize the hud to your liking and the options are limited now but will be expanded in the future
+>
+> ![](https://forum-cfx-re.akamaized.net/original/5X/3/7/7/1/3771f5de987fd76b58678443c5d45cb2497b92aa.jpeg)
 
 [Preview](https://youtu.be/nHTXMXuKbVg)
 [Download](https://github.com/AfterLifeStudio/Afterlife-Hud)
