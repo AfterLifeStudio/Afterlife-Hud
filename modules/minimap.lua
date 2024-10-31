@@ -56,11 +56,15 @@ StreamMinimap = function()
 
     local w, h = 0.111, 0.245
 
-    local margin = GlobalSettings.circlemap and 0.007 or 0
-
-    SetMinimapComponentPosition('minimap', dir, 'B', dimensions.posx - margin, dimensions.posy, w, h)
-    SetMinimapComponentPosition('minimap_mask', dir, 'B', dimensions.posx - margin, dimensions.posy, w, h)
-    SetMinimapComponentPosition('minimap_blur', dir, 'B', dimensions.posx - margin, dimensions.posy, w, h)
+    if GlobalSettings.circlemap then
+        SetMinimapComponentPosition('minimap', dir, 'B', dimensions.posx - 0.003, dimensions.posy, w, h)
+        SetMinimapComponentPosition('minimap_mask', dir, 'B', dimensions.posx - 0.007, dimensions.posy + 0.03, w, h - 0.05)
+        SetMinimapComponentPosition('minimap_blur', dir, 'B', dimensions.posx - 0.007, dimensions.posy, w, h)
+    else
+        SetMinimapComponentPosition('minimap', dir, 'B', dimensions.posx, dimensions.posy, w + 0.06, h + 0.06)
+        SetMinimapComponentPosition('minimap_mask', dir, 'B', dimensions.posx + 0.008, dimensions.posy, w - 0.027, h + 0.05)
+        SetMinimapComponentPosition('minimap_blur', dir, 'B', dimensions.posx, dimensions.posy, w, h)
+    end
 
     SetRadarBigmapEnabled(true, false)
     Wait(0)
