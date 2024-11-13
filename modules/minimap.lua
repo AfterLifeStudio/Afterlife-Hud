@@ -7,6 +7,10 @@ local SetMinimapComponentPosition = SetMinimapComponentPosition
 local SetBlipAlpha = SetBlipAlpha
 local GetNorthRadarBlip = GetNorthRadarBlip
 local SetRadarBigmapEnabled = SetRadarBigmapEnabled
+local RequestScaleformMovie = RequestScaleformMovie
+local BeginScaleformMovieMethod = BeginScaleformMovieMethod
+local EndScaleformMovieMethod = EndScaleformMovieMethod
+
 
 
 ---@class NuiRes
@@ -70,6 +74,10 @@ StreamMinimap = function()
     Wait(0)
     SetRadarBigmapEnabled(false, false)
 
+
+    local minimap = RequestScaleformMovie('minimap')
+    BeginScaleformMovieMethod(minimap, 'HIDE_SATNAV')
+    
     NuiRes = {
         width = dimensions.sizex + (GlobalSettings.circlemap and 75 or 0),
         height = dimensions.sizey
