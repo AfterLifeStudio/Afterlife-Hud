@@ -74,9 +74,6 @@ StreamMinimap = function()
     Wait(0)
     SetRadarBigmapEnabled(false, false)
 
-
-    local minimap = RequestScaleformMovie('minimap')
-    BeginScaleformMovieMethod(minimap, 'HIDE_SATNAV')
     
     NuiRes = {
         width = dimensions.sizex + (GlobalSettings.circlemap and 75 or 0),
