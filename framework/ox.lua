@@ -24,7 +24,7 @@ AddEventHandler('onResourceStart', function(resourceName)
 end)
 
 AddEventHandler('ox:statusTick', function(values)
-    Playerstatus.Thirst = values.hunger
-    Playerstatus.Hunger = values.thirst
+    Playerstatus.Thirst = values.thirst
+    Playerstatus.Hunger = values.hunger
     Playerstatus.Stress = values.stress
 end)
